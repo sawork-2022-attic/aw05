@@ -11,22 +11,9 @@ paths:
       operationId: listProducts
       tags:
         - products
-      parameters:
-        - name: limit
-          in: query
-          description: How many items to return at one time (max 100)
-          required: false
-          schema:
-            type: integer
-            format: int32
       responses:
         '200':
           description: A paged array of products
-          headers:
-            x-next:
-              description: A link to the next page of responses
-              schema:
-                type: string
           content:
             application/json:
               schema:
