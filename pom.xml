@@ -7,6 +7,7 @@
         <module>pos-products</module>
         <module>pos-carts</module>
         <module>pos-discovery</module>
+        <module>pos-gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -51,9 +52,14 @@
                 <version>3.0.0</version>
             </dependency>
             <dependency>
-                <groupId>javax.validation</groupId>
-                <artifactId>validation-api</artifactId>
-                <version>2.0.1.Final</version>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>1.4.2.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>1.4.2.Final</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -81,11 +87,9 @@
                                     ${project.basedir}/src/main/resources/api.yml
                                 </inputSpec>
                                 <generatorName>spring</generatorName>
-                                <supportingFilesToGenerate>
-                                    ApiUtil.java
-                                </supportingFilesToGenerate>
+                                <library>spring-boot</library>
                                 <configOptions>
-                                    <delegatePattern>true</delegatePattern>
+                                    <interfaceOnly>true</interfaceOnly>
                                 </configOptions>
                             </configuration>
                         </execution>
